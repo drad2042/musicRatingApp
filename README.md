@@ -1,1 +1,3 @@
 # musicRatingApp
+
+Music Rating App
