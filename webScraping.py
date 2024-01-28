@@ -29,6 +29,15 @@ class Scraper:
             #soup = json.loads(soup)
             soup = soup.replace("{\"data\":[{", "")
             albumList = soup.split("},{")
+            albumList[-1] = albumList[-1].split("}")[0]
 
-            for album in albumList:
-                print(album + '\n')
+            for x in range(1, len(albumList)):
+                albumList[x] = "{" + albumList[x] + "}"
+                albumList[x] = json.loads(albumList[x])
+            #albumList[-1] = json.loads(albumList[-1])
+                try:
+                    print(albumList[x]["title"])
+                except:
+                    continue
+            #for album in albumList:
+            #    print(album + '\n')
