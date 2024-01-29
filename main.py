@@ -7,7 +7,8 @@ s = Scraper()
 def main():
     start = time.time()
     #s.scrapeByArtist()
-    s.scrapeByAlbum()
+    #s.scrapeByAlbum()
+    s.scrapeBySong()
     end = time.time()
     totalTime = end - start
     print(totalTime)

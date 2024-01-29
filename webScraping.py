@@ -39,5 +39,28 @@ class Scraper:
                     print(albumList[x]["title"])
                 except:
                     continue
-            #for album in albumList:
-            #    print(album + '\n')
+
+
+    def scrapeBySong(self):
+        URL = "https://api.deezer.com/artist/"
+        for i in range(3000,3500):
+            albumURL = URL + str(i) + "/albums"
+            r = requests.get(albumURL)
+
+            soup = BeautifulSoup(r.content, 'lxml').text
+            #soup = json.loads(soup)
+            soup = soup.replace("{\"data\":[{", "")
+            albumList = soup.split("},{")
+            albumList[-1] = albumList[-1].split("}")[0]
+
+            for x in range(1, len(albumList)):
+                albumList[x] = "{" + albumList[x] + "}"
+                albumList[x] = json.loads(albumList[x])
+
+                trackURL = "https://api.deezer.com/album/" + str(albumList[x]["id"])
+                r2 = requests.get(trackURL)
+
+                soup = BeautifulSoup(r2.content, 'lxml').text
+                print(soup)
+
+        #"https://api.deezer.com/album/428991547/"
