@@ -44,7 +44,7 @@ class Scraper:
     def scrapeBySong(self):
         #THIS CHUNK OF CODE TAKES i ARTISTS AND SPLITS UP THE INDIVIDUAL ALBUMS
         URL = "https://api.deezer.com/artist/"
-        for i in range(1,2):
+        for i in range(300,400):
             albumsURL = URL + str(i) + "/albums" #Navigates to the URL for an artist's albums.
             r = requests.get(albumsURL)
 
