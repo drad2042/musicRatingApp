@@ -59,7 +59,8 @@ class Scraper:
                 albumList[x] = "{" + albumList[x] + "}"
                 albumList[x] = json.loads(albumList[x])
 
-                trackURL = "https://api.deezer.com/album/" + str(albumList[x]["id"])
+                albumName = str(albumList[x]["id"])
+                trackURL = "https://api.deezer.com/album/" + albumName
                 r2 = requests.get(trackURL)
 
                 soup = BeautifulSoup(r2.content, 'lxml').text
