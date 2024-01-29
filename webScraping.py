@@ -22,7 +22,7 @@ class Scraper:
 
     def scrapeByAlbum(self):
         URL = "https://api.deezer.com/artist/"
-        for i in range(1, 100):
+        for i in range(3000,3500):
             r = requests.get(URL + str(i) + "/albums")
 
             soup = BeautifulSoup(r.content, 'lxml').text
