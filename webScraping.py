@@ -63,7 +63,7 @@ class Scraper:
                 r2 = requests.get(trackURL)
 
                 soup = BeautifulSoup(r2.content, 'lxml').text
-                tracklist = soup.split("},{")
+                tracklist = soup.split("},{") #Tracklist splits tge songs up into individual blocks.
                 
                 for y in range(1, len(tracklist)):
                     print(tracklist[y] + '\n')
