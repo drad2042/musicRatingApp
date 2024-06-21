@@ -13,7 +13,8 @@ class Data_Scrape:
         self.api_key = os.getenv("API_KEY")
         self.api_secret = os.getenv("API_SECRET")
 
+    def main(self):
+        return "HELLO"
 
 c = Data_Scrape()
-print(c)
 
